@@ -6,7 +6,6 @@ using UnityEngine;
 public class Hero : MonoBehaviour
 {
     public Observer<int> Health = new Observer<int>(100);
-    public static event Action<int> OnAnyCollected;
 
     // Start is called before the first frame update
     void Start()
@@ -21,10 +20,5 @@ public class Hero : MonoBehaviour
         {
             Health.Value += 10;
         }
-    }
-
-    public void UpdateScore(int points)
-    {
-        OnAnyCollected?.Invoke(points);
     }
 }
